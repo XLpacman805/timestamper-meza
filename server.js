@@ -11,8 +11,10 @@ var app = express();
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('views'));
 
-app.get("/test", (req, res)=>{
-  res.end("Hello world!");
+app.get("/api/:t", (req, res)=>{
+  var timeString = req.params.t;
+  
+  res.end("Hello world!" + timeString);
 });
 
 // listen for requests :)
