@@ -10,7 +10,8 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.15.4"
+    "express": "^4.15.4",
+    "strftime": "^0.10.0"
   },
   "engines": {
     "node": "8.x"

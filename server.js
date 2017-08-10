@@ -2,8 +2,9 @@
 // where your node app starts
 
 // init project
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
+const strf = require("strftime");
 
 // we've started you off with Express, 
 // but feel free to use whatever libs or frameworks you'd like through `package.json`.
@@ -12,9 +13,22 @@ var app = express();
 app.use(express.static('views'));
 
 app.get("/api/:t", (req, res)=>{
-  var timeString = req.params.t;
+  var time = req.params.t;
+  //check for unix time
+  if(isNaN(parseInt(time))){//time is a string
+    var d = new Date(time);
+    res.end(JSON.stringify(
+      {
+      unix: d.getTime(),
+      natural: (d.toUTCString() === "Invalid Date") ? null : strf("%B %d %Y",d) //is utc string an invalid date? If so return null, if not then return the utcdate. 
+    }));
+    
+  }else if(!isNaN(parseInt(time))){ //time is number
+    time = parseInt(time);
+    var d = new Date(time);
+    res.end(d.toString());
+  }  
   
-  res.end("Hello world!" + timeString);
 });
 
 // listen for requests :)
