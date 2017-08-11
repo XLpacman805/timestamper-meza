@@ -1,0 +1,28 @@
+{
+  "//1": "A timestamp service that takes either a string date or a unix date. It will respond with an object that gives both a unix date and a human readable date",
+  "//2": "https://docs.npmjs.com/files/package.json",
+  "//3": "updating this file will download and update your packages",
+  "name": "timestamper-meza",
+  "version": "0.0.1",
+  "description": "A timestamp service that takes either a string date or a unix date. It will respond with an object that gives both a unix date and a human readable date",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.15.4",
+    "strftime": "^0.10.0"
+  },
+  "engines": {
+    "node": "8.x"
+  },
+  "repository": {
+    "url": "https://github.com/XLpacman805/timestamper-meza"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "glitch",
+    "express"
+  ]
+}
