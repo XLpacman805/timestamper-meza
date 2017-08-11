@@ -19,14 +19,20 @@ app.get("/api/:t", (req, res)=>{
     var d = new Date(time);
     res.end(JSON.stringify(
       {
-      unix: d.getTime(),
-      natural: (d.toUTCString() === "Invalid Date") ? null : strf("%B %d %Y",d) //is utc string an invalid date? If so return null, if not then return the utcdate. 
+      unix: d.getTime()/1000,
+      natural: (d.toUTCString() === "Invalid Date") ? null : d.toDateString() //is utc string an invalid date? If so return null, if not then return the utcdate. 
     }));
     
   }else if(!isNaN(parseInt(time))){ //time is number
-    time = parseInt(time);
-    var d = new Date(time);
-    res.end(d.toString());
+    var time_unix = parseInt(time);
+    var dx = new Date(time_unix*1000);
+    console.log(time_unix);
+    console.log(dx);
+    res.end(JSON.stringify(
+      {
+      unix: dx.getTime()/1000,
+      natural: (dx.toUTCString() === "Invalid Date") ? null : dx.toDateString()
+      }));
   }  
   
 });
