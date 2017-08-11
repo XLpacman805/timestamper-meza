@@ -1,27 +1,31 @@
-Welcome to the Glitch BETA
+How to Use Timestamper-Meza
 =========================
 
-Click `Show` in the header to see your app live. Updates to your code will instantly deploy and update live.
+Add either a unix timestamp or a datestring to the end of 
+https://timestamper-meza.glitch.me/api/
 
-**Glitch** is the friendly commmunity where you'll build the app of your dreams. Glitch lets you instantly create, remix, edit, and host an app, bot or site, and you can invite collaborators or helpers to simultaneously edit code with you.
+Example Unix: 
 
-Find out more [about Glitch](https://glitch.com/about).
+`https://timestamper-meza.glitch.me/api/1502411431`
 
+output : 
+```
+{
+  "unix": 1502411431,
+  "natural": "August 11 2017"
+}
+```
 
-Your Project
-------------
+Example timeString: 
 
-On the front-end,
-- edit `public/client.js`, `public/style.css` and `views/index.html`
-- drag in `assets`, like images or music, to add them to your project
+`https://timestamper-meza.glitch.me/api/march%205%202016`
 
-On the back-end,
-- your app starts at `server.js`
-- add frameworks and packages in `package.json`
-- safely store app secrets in `.env` (nobody can see this but you and people you invite)
+Output:
 
+```
+{
+  "unix": 1457136000,
+  "natural": "March 05 2016"
+}
 
-Made by [Fog Creek](https://fogcreek.com/)
--------------------
-
-\ ゜o゜)ノ
+```
