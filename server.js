@@ -4,7 +4,12 @@
 // init project
 const express = require('express');
 const app = express();
-const strf = require("strftime");
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "https://www.freecodecamp.org"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, application/json");
+  next();
+});
 
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('views'));
@@ -45,7 +50,7 @@ app.get("/api/timestamp/", (req, res)=>{
   
 });
 
-// listen for requests :) process.env.PORT
-var listener = app.listen(8080 , function () {
+// listen for requests :) 
+var listener = app.listen(process.env.PORT , function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
