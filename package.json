@@ -14,7 +14,7 @@
     "strftime": "^0.10.0"
   },
   "engines": {
-    "node": "8.x"
+    "node": "12.x"
   },
   "repository": {
     "url": "https://github.com/XLpacman805/timestamper-meza"

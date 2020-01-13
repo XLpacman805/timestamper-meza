@@ -16,8 +16,8 @@ function clockWork(d){//d is a date object
   });
 }
 
-app.get("/api/:t", (req, res)=>{
-  var time = req.params.t;
+app.get("/api/timestamp/:date_string", (req, res)=>{
+  var time = req.params.date_string;
   //check for unix time
   if(isNaN(parseInt(time))){//time is a string
     var d = new Date(time);
